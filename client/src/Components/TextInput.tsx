@@ -12,12 +12,14 @@ function TextInput() {
         const end = textarea.selectionEnd;
   
         if (start !== null && end !== null) {
+            
             const highlighted = textarea.value.substring(start, end);
+            console.log("This is the highlighted text: ", highlightedText)
+
             setHighlightedText(highlighted);
           } else {
             setHighlightedText('');
           }
-        console.log("This is the highlighted text: ", highlightedText)
     };
     return (
     <textarea
