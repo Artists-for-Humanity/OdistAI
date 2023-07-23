@@ -5,15 +5,16 @@ import IncomingText from "./Components/IncomingText";
 import ToolBar from "./Components/ToolBar";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [highlightedText, setHighlightedText] = useState("")
+  const [chatgptResponse, setChatgptResponse] = useState("")
 
   return (
     <div>
       <div className="flex flex-row gap-x-8">
-        <TextInput></TextInput>
-        <IncomingText></IncomingText>
+        <TextInput onData={setHighlightedText}/>
+        <IncomingText text={chatgptResponse}/>
       </div>
-      <ToolBar></ToolBar>
+      <ToolBar onData={setChatgptResponse} highlighted={highlightedText}/>
     </div>
   );
 }
