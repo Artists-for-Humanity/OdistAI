@@ -1,34 +1,86 @@
+import { Fragment, ReactNode, useState } from "react";
 
 type DataCallback = (data: string) => void;
+type StatusCallback = (data: boolean) => void;
 
-const TextInput : React.FC<{ onData: DataCallback }> = ({ onData }) => {
+const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback, children: ReactNode, setHighlight: StatusCallback, isHighlighted: boolean }> = ({ onData, onContentChange, children, setHighlight, isHighlighted }) => {
+    const parser = new DOMParser();
+    const [essayContent, setEssayContent] = useState('');
 
-    const handleOnMouseUp = (e : React.MouseEvent<HTMLTextAreaElement>) => {
+    const handleOnMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
         handleHighlight(e)
     }
 
-    const handleHighlight = (e : React.MouseEvent<HTMLTextAreaElement>) => {
+    const handleHighlight = (e: React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        const selectedText = window.getSelection()?.toString();
 
-        const textarea = e.target as HTMLTextAreaElement
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-        let highlighted = "..."
-  
-        if (start !== null && end !== null) {
-            
-            highlighted = textarea.value.substring(start, end);
-            onData(highlighted)
-          } 
-          onData(highlighted)
+        if (selectedText === '') return;
+        console.log('selected', selectedText)
+        const lastNodeOfSelection = window.getSelection()?.anchorNode;
+
+        // console.log(lastNodeOfSelection);
+        const allEssayNodes = Array.from((document.getElementById('essay-content') as HTMLDivElement).childNodes)?.filter(node => node.nodeName.toUpperCase() !== "TEXTAREA");
+
+        // const rerenderedNodes = (
+        //     <Fragment>
+        //         {allEssayNodes.map((node: ChildNode, idx: number) => {
+        //             if (node.isSameNode(lastNodeOfSelection!)) {
+        //                 return (
+        //                     <Fragment key={idx}>
+        //                         {children}
+        //                     </Fragment>
+        //                 )
+        //             } else {
+        //                 return ( null )
+        //             }
+        //         })}
+        //     </Fragment>
+        // )
+
+        // console.log(rerenderedNodes);
+        // (document.getElementById('essay-content') as HTMLDivElement).innerHTML = '';
+        // TODO: insert the ai suggestion box after the last node (div paragraph in this case)
+
+        // console.log(selectedText);
+        if (selectedText && selectedText !== "") {
+            setHighlight(true);
+            onData(selectedText)
+        } else {
+            setHighlight(false)
+        }
     };
-    return (
-    <textarea
-        id="message"
-        className="resize-none block w-96 h-80 mb-8 p-2.5 w-full text-sm text-gray-900 drop-shadow-2xl bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Enter text..."
-        onMouseUp={handleOnMouseUp}>
 
-        </textarea>)
+    const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        onContentChange((e.target as HTMLDivElement).textContent!);
+        // setEssayContent((e.target as HTMLDivElement).textContent!);
+    }
+
+    // if (document.getElementById('essay-content')) {
+    //     console.log(essayContent);
+    //     (document.getElementById('essay-content') as HTMLDivElement).childNodes.forEach(child => {
+    //         (document.getElementById('essay-content') as HTMLDivElement).removeChild(child);
+    //     })
+    // }
+    return (
+        <>
+            <div
+                id="essay-content"
+                className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:bg-neutral-800  dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex"
+                // placeholder="Enter text..."
+            >
+                <div 
+                    className="w-full h-full p-2.5 outline-none"
+                    contentEditable
+                    onMouseUp={handleOnMouseUp}
+                    suppressContentEditableWarning={true}
+                    onInput={handleInput}
+                ></div>
+                {isHighlighted && children}
+            </div>
+        </>
+    )
 
 }
 
