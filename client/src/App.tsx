@@ -18,7 +18,7 @@ function App() {
       </div>
       <div className="block h-[60vh] mb-2">
         <TextInput onData={setHighlightedText} onContentChange={setInputContent} setHighlight={setIsHighlightingText} isHighlighted={isHighlightingText}>
-          <IncomingText text={chatgptResponse}/>
+          <IncomingText text={chatgptResponse} prompt={highlightedText}/>
         </TextInput>
       </div>
       <ToolBar onData={setChatgptResponse} highlighted={highlightedText}/>

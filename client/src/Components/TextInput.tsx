@@ -71,7 +71,7 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
                 // placeholder="Enter text..."
             >
                 <div 
-                    className="w-full h-full p-2.5 outline-none"
+                    className="w-full h-full p-2.5 outline-none max-h-full overflow-y-auto"
                     contentEditable
                     onMouseUp={handleOnMouseUp}
                     suppressContentEditableWarning={true}
