@@ -9,7 +9,7 @@ function App() {
   const [chatgptResponse, setChatgptResponse] = useState("")
   const [inputContent, setInputContent] = useState("");
   const [isHighlightingText, setIsHighlightingText] = useState(false);
-  console.log("this is true? ", highlightedText)
+  // console.log("this is true? ", isHighlightingText)
 
   return (
     <div className="flex justify-center items-center">
