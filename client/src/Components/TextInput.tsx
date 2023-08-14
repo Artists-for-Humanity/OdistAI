@@ -21,7 +21,9 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
 
         // console.log(lastNodeOfSelection);
         const allEssayNodes = Array.from((document.getElementById('essay-content') as HTMLDivElement).childNodes)?.filter(node => node.nodeName.toUpperCase() !== "TEXTAREA");
-
+        allEssayNodes.map((node: ChildNode, idx: number) => {
+            console.log("idx:", idx, node)
+        })
         // const rerenderedNodes = (
         //     <Fragment>
         //         {allEssayNodes.map((node: ChildNode, idx: number) => {
@@ -63,6 +65,7 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
     //         (document.getElementById('essay-content') as HTMLDivElement).removeChild(child);
     //     })
     // }
+
     return (
         <>
             <div

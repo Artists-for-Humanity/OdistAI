@@ -25,56 +25,49 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
 
   return (
 
-    <div className = "flex flex-col justify-around gap-4" >
+    <div className = "flex flex-col justify-around gap-4 p-3" >
+    <div className = "flex gap-5 items-center">
     <input 
-      className='py-1.5'
+      className='py-1.5 w-2/3 p-3 rounded-full max-w-md'
       placeholder="  Ask AI..."
     ></input>
-    <div className="items-center justify-center hidden col-span-1 space-x-2 sm:flex">
+
+      <div className='w-4 h-4 bg-purple-400 rounded-full'></div>
+      <div className='w-4 h-4 bg-green-400 rounded-full'></div>
+      <div className='w-4 h-4 bg-blue-400 rounded-full'></div>
+      
+
+    </div>
+    <div className="items-center justify-left hidden col-span-1 space-x-2 sm:flex">
       <button
         type="button"
-        className="text-blue-700 shadow-lg hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 "
+        className="flex bg-neutral-700 rounded-full items-center gap-3"
         onClick={fetchData}
-      >
+      ><div className='w-3 h-3 bg-blue-400 rounded-full'></div>
         Improve writing
       </button>
       <button
         type="button"
-        className="text-blue-700 shadow-lg hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 "
+        className="rounded-full"
         onClick={fetchData}
       >
         Make longer
       </button>
       <button
         type="button"
-        className="text-blue-700 shadow-lg hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 "
+        className="rounded-full"
         onClick={fetchData}
       >
         Make shorter
       </button>
       <button
         type="button"
-        className="text-blue-700 shadow-lg hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 "
+        className="rounded-full"
         onClick={fetchData}
       >
         Fix spelling grammar
       </button>
     </div>
-    <div>
-        <button
-          type="button"
-          className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >
-          Accept
-        </button>
-
-        <button
-          type="button"
-          className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >
-          Reject
-        </button>
-      </div>
     </div>)
 }
 
