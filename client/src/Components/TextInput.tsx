@@ -1,11 +1,35 @@
-import { Fragment, ReactNode, useState } from "react";
+import { ReactNode } from "react";
 // import DOMPurify from 'dompurify';
 type DataCallback = (data: string) => void;
 type StatusCallback = (data: boolean) => void;
+type NumberCallback = (data: number) => void;
 
-const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback, children: ReactNode, setHighlight: StatusCallback, isHighlighted: boolean }> = ({ onData, onContentChange, children, setHighlight, isHighlighted }) => {
-    const parser = new DOMParser();
-    const [essayContent, setEssayContent] = useState('');
+const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback, children: ReactNode, setHighlight: StatusCallback, isHighlighted: boolean, setCaretLocation: NumberCallback }> = ({ onData, onContentChange, children, setHighlight, isHighlighted, setCaretLocation }) => {
+    function getCaretCharacterOffsetWithin(element: Element) {
+        let caretOffset = 0;
+        // const doc = document;
+        const win = window;
+        let sel;
+        if (win.getSelection) {
+            sel = win.getSelection();
+            if ((sel as Selection).rangeCount > 0) {
+                const range = win.getSelection()!.getRangeAt(0);
+                const preCaretRange = range.cloneRange();
+                preCaretRange.selectNodeContents(element);
+                preCaretRange.setEnd(range.endContainer, range.endOffset);
+                caretOffset = preCaretRange.toString().length;
+            }
+        }
+        // else if ( (sel === doc.selection) && sel.type != "Control") {
+        //     const textRange = sel.createRange();
+        //     const preCaretTextRange = doc.body.createTextRange();
+        //     preCaretTextRange.moveToElementText(element);
+        //     preCaretTextRange.setEndPoint("EndToEnd", textRange);
+        //     caretOffset = preCaretTextRange.text.length;
+        // }
+        return caretOffset;
+    }
+    // const contentEditableRef = useRef(null);
 
     const handleOnMouseUp = (e: React.MouseEvent<HTMLDivElement>) => {
         handleHighlight(e)
@@ -15,6 +39,9 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
         
         e.preventDefault();
         const selectedText = window.getSelection()?.toString();
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+        setCaretLocation(getCaretCharacterOffsetWithin(e.target as HTMLDivElement));
+        
         if (selectedText === '') {
             setHighlight(false);
             return;
@@ -61,12 +88,6 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
         // setEssayContent((e.target as HTMLDivElement).textContent!);
     }
 
-    const afterHandlingInput = (e: React.FormEvent<HTMLDivElement>) => {
-        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
-        // console.log(DOMPurify.sanitize((e.target as HTMLDivElement).innerHTML, { IN_PLACE: true }));
-        console.log((e.target as HTMLDivElement).innerHTML)
-    }
-
     // if (document.getElementById('essay-content')) {
     //     console.log(essayContent);
     //     (document.getElementById('essay-content') as HTMLDivElement).childNodes.forEach(child => {
@@ -85,7 +106,7 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
                 id="essay-content"
                 onMouseUp={handleOnMouseUp}
                 suppressContentEditableWarning={true}
-                onInput={(e) => { handleInput(e); afterHandlingInput(e) }}
+                onInput={handleInput}
             >
             </div>
             {isHighlighted && children}
