@@ -1,6 +1,9 @@
 const CustomQueryInput = () => {
-  const handleInput = (e: ) => {
-
+  const handleInput = (e: React.FormEvent<HTMLInputElement> ) => {
+    if ((e.target as HTMLInputElement).value && (e.target as HTMLInputElement).value !== '') {
+      // content
+      console.log('adding stuff i think')
+    }
   };
   return (
     <input
@@ -12,4 +15,4 @@ const CustomQueryInput = () => {
   )
 }
 
-export default CustomQueryInput
+export default CustomQueryInput;

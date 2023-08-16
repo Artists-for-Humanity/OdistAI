@@ -29,7 +29,7 @@ function App() {
               setCaretLocation={setCaretLocation}
             >
               <div
-                className="bg-zinc-900 h-fit my-4 mx-3 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 card-stretch"
+                className="bg-[#1B1B1B] h-fit my-4 mx-3 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 card-stretch"
               >
                 <IncomingText
                   chatgptResponse={chatgptResponse}
