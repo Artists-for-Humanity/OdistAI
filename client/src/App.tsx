@@ -13,9 +13,14 @@ function App() {
   // console.log("this is true? ", isHighlightingText)
 
   return (
-    <div className="flex space-x-3 items-center">
-      <div className="2xl:px-48 px-24 grow">
+    <div className="flex space-x-3 items-center justify-center">
+<<<<<<< Updated upstream
+      <div className="2xl:px-48 px-24 w-3/4">
         <div className="text-center w-full">
+=======
+      <div className="2xl:px-48 px-24 w-2/3">
+        <div className="text-center">
+>>>>>>> Stashed changes
           <div className="border-b border-zinc-200 block mb-6 pb-3 text-left">
             <div className="text-zinc-500 text-lg">Title</div>
             <div className="text-white font-semibold text-2xl outline-none" contentEditable suppressContentEditableWarning>My Awesome Essay</div>

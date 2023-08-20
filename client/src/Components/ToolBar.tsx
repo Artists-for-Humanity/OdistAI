@@ -55,92 +55,92 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
 
   return (
 
-    <div className = "flex flex-col justify-around gap-4 p-3" >
-    <div className = "flex gap-5 items-center">
-      <input 
-        className='py-1.5 w-2/3 p-3 rounded-full max-w-md bg-neutral-900'
-        placeholder="  Ask AI..."
-      ></input>
+    <div className="flex flex-col justify-around gap-4 p-3" >
+      <div className="flex gap-5 items-center flex-wrap">
+        <input
+          className='py-1.5 w-2/3 p-3 rounded-full max-w-md bg-neutral-900'
+          placeholder="  Ask AI..."
+        ></input>
 
-      <div className={classNames({
-        'w-4 h-4 rounded-full': true,
-        'bg-blue-400': activeCritique.improveWriting,
-        'bg-zinc-800': !activeCritique.improveWriting,
-      })}></div>
-      <div className={classNames({
-        'w-4 h-4 rounded-full': true,
-        'bg-purple-400': activeCritique.makeLonger,
-        'bg-zinc-800': !activeCritique.makeLonger,
-      })}></div>
-      <div className={classNames({
-        'w-4 h-4 rounded-full': true,
-        'bg-green-400': activeCritique.makeShorter,
-        'bg-zinc-800': !activeCritique.makeShorter,
-      })}></div>
-      <div className={classNames({
-        'w-4 h-4 rounded-full': true,
-        'bg-rose-400': activeCritique.fixSpellingAndGrammar,
-        'bg-zinc-800': !activeCritique.fixSpellingAndGrammar,
-      })}></div>
-      <button className='rounded bg-zinc-500' onClick={fetchData}>send</button>
-    </div>
-    <div className="items-center justify-left hidden col-span-1 space-x-2 sm:flex">
-      {/* Improve writing, blue-400 */}
-      <button
-        type="button"
-        className="flex bg-neutral-900 rounded-full items-center gap-3"
-        onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'improveWriting'))}
-      >
-        <span className={classNames({
-          'w-3 h-3 rounded-full': true,
+        <div className={classNames({
+          'w-4 h-4 rounded-full': true,
           'bg-blue-400': activeCritique.improveWriting,
           'bg-zinc-800': !activeCritique.improveWriting,
-        })}></span>
-        Improve writing
-      </button>
-
-      {/* Make longer */}
-      <button
-        type="button"
-        className="flex gap-3 items-center rounded-full"
-        onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'makeLonger'))}
-      >
-        <span className={classNames({
-          'w-3 h-3 rounded-full': true,
+        })}></div>
+        <div className={classNames({
+          'w-4 h-4 rounded-full': true,
           'bg-purple-400': activeCritique.makeLonger,
           'bg-zinc-800': !activeCritique.makeLonger,
-        })}></span>
-        Make longer
-      </button>
-
-      {/* Make shorter */}
-      <button
-        type="button"
-        className="flex gap-3 items-center rounded-full"
-        onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'makeShorter'))}
-      >
-        <span className={classNames({
-          'w-3 h-3 rounded-full': true,
+        })}></div>
+        <div className={classNames({
+          'w-4 h-4 rounded-full': true,
           'bg-green-400': activeCritique.makeShorter,
           'bg-zinc-800': !activeCritique.makeShorter,
-        })}></span>
-        Make shorter
-      </button>
-
-      {/* Fix spelling and grammar */}
-      <button
-        type="button"
-        className="flex gap-3 items-center rounded-full"
-        onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'fixSpellingAndGrammar'))}
-      >
-        <span className={classNames({
-          'w-3 h-3 rounded-full': true,
+        })}></div>
+        <div className={classNames({
+          'w-4 h-4 rounded-full': true,
           'bg-rose-400': activeCritique.fixSpellingAndGrammar,
           'bg-zinc-800': !activeCritique.fixSpellingAndGrammar,
-        })}></span>
-        Fix spelling grammar
-      </button>
-    </div>
+        })}></div>
+        <button className='rounded bg-zinc-500' onClick={fetchData}>send</button>
+      
+      
+        {/* Improve writing, blue-400 */}
+        <button
+          type="button"
+          className="flex bg-neutral-900 rounded-full items-center gap-3"
+          onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'improveWriting'))}
+        >
+          <span className={classNames({
+            'w-3 h-3 rounded-full': true,
+            'bg-blue-400': activeCritique.improveWriting,
+            'bg-zinc-800': !activeCritique.improveWriting,
+          })}></span>
+          Improve writing
+        </button>
+
+        {/* Make longer */}
+        <button
+          type="button"
+          className="flex gap-3 items-center rounded-full"
+          onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'makeLonger'))}
+        >
+          <span className={classNames({
+            'w-3 h-3 rounded-full': true,
+            'bg-purple-400': activeCritique.makeLonger,
+            'bg-zinc-800': !activeCritique.makeLonger,
+          })}></span>
+          Make longer
+        </button>
+
+        {/* Make shorter */}
+        <button
+          type="button"
+          className="flex gap-3 items-center rounded-full"
+          onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'makeShorter'))}
+        >
+          <span className={classNames({
+            'w-3 h-3 rounded-full': true,
+            'bg-green-400': activeCritique.makeShorter,
+            'bg-zinc-800': !activeCritique.makeShorter,
+          })}></span>
+          Make shorter
+        </button>
+
+        {/* Fix spelling and grammar */}
+        <button
+          type="button"
+          className="flex gap-3 items-center rounded-full"
+          onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'fixSpellingAndGrammar'))}
+        >
+          <span className={classNames({
+            'w-3 h-3 rounded-full': true,
+            'bg-rose-400': activeCritique.fixSpellingAndGrammar,
+            'bg-zinc-800': !activeCritique.fixSpellingAndGrammar,
+          })}></span>
+          Fix spelling grammar
+        </button>
+      </div>
     </div>)
 }
 

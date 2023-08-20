@@ -97,11 +97,15 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
 
     return (
         <div
-            className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:bg-neutral-800  dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex"
+            className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:bg-neutral-800  dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex overflow-y-auto"
             // placeholder="Enter text..."
         >
             <div 
-                className="w-full h-full p-2.5 outline-none max-h-full overflow-y-auto"
+<<<<<<< Updated upstream
+                className="w-full h-full p-2.5 outline-none max-h-full"
+=======
+                className="w-full h-full p-2.5 outline-none max-h-full break-words"
+>>>>>>> Stashed changes
                 contentEditable
                 id="essay-content"
                 onMouseUp={handleOnMouseUp}
