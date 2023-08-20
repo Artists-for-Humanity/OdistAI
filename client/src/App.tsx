@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="flex space-x-3 items-center justify-center w-full min-h-screen bg-matte-black-light">
-      <div className="2xl:px-48 px-24 w-3/4">
+      <div className="2xl:px-48 px-24 w-3/4 flex flex-row">
         <div className="text-center w-full">
           <div className="border-b-2 text-zinc-500 block mb-8 pb-3 text-left">
             <div className="text-zinc-500 text-lg pb-3">Title</div>
@@ -59,12 +59,24 @@ function App() {
           </div>
 
           <footer className="border-t-2 text-zinc-500 pt-3 text-left text-xs">
-          {/* {inputContent !== "" ? inputContent.trim().split(" ").length : 0}{" "}
+            {/* {inputContent !== "" ? inputContent.trim().split(" ").length : 0}{" "}
               words -{" "} */}
             <span>{wordCount(document.getElementById('essay-content'))} words - </span>
             <span>{inputContent.length} characters - </span>
             <span>{Math.round(inputContent.length / 500)} pages </span>
           </footer>
+        </div>
+        <div className="flex flex-col w-2/4 gap-5">
+          <h3>About The Project</h3>
+          <div className="flex flex-row text-center align-text-bottom gap-5 h-48">
+            <div className="w-1/2 items-end bg-zinc-900"><span>Phaedra</span>
+            </div>
+            <div className="w-1/2 bg-zinc-900">Gordan</div>
+          </div>
+          <div className="flex flex-row text-center gap-5 h-48">
+            <div className="w-1/2  bg-zinc-900">Youssef</div>
+            <div className="w-1/2 bg-zinc-900">Luke</div>
+          </div>
         </div>
       </div>
       {/* <div className="h-screen bg-neutral-700/20 grow-0 w-96">
