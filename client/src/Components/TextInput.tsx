@@ -36,12 +36,12 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
     }
 
     const handleHighlight = (e: React.MouseEvent<HTMLDivElement>) => {
-        
+
         e.preventDefault();
         const selectedText = window.getSelection()?.toString();
         // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         setCaretLocation(getCaretCharacterOffsetWithin(e.target as HTMLDivElement));
-        
+
         if (selectedText === '') {
             setHighlight(false);
             return;
@@ -81,7 +81,7 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
     };
 
     const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
-        
+
         onContentChange((e.target as HTMLDivElement).textContent!);
 
 
@@ -98,9 +98,9 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
     return (
         <div
             className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:bg-neutral-800  dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex overflow-y-auto"
-            // placeholder="Enter text..."
+        // placeholder="Enter text..."
         >
-            <div 
+            <div
                 className="w-full h-full p-2.5 outline-none max-h-full break-words"
                 contentEditable
                 id="essay-content"

@@ -21,7 +21,6 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
 
   const fetchData = async () => {
     // Uncomment this to see the hardcorded version is working.
-    console.log("this is the highlighted data in ToolBar right now", highlighted)
     const prompt = 'use these critiques: ' + critique + 'to edit the following text: "' + highlighted + '"'
 
     try {
@@ -47,21 +46,31 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
       'make the passage shorter,': activeCritique.makeShorter,
       'fix spelling and grammar,': activeCritique.fixSpellingAndGrammar,
     }));
-    console.log(critique);
 
     return result;
   };
 
-
   return (
-
     <div className="flex flex-col justify-around gap-4 p-3" >
       <div className="flex gap-5 items-center flex-wrap">
-        <input
-          className='py-1.5 w-2/3 p-3 rounded-full max-w-md bg-neutral-900'
-          placeholder="  Ask AI..."
-        ></input>
-
+        <div className='relative flex items-center'>
+          <input
+            className='py-1.5 w-full p-3 rounded-full max-w-md bg-neutral-900'
+            placeholder="  Ask AI..."
+          ></input>
+          <button type="button" onClick={fetchData} className="absolute right-0 text-zinc-600 ring-1 ring-zinc-600 font-small rounded-full text-sm p-1 mr-2 text-center inline-flex items-center">
+            <svg className="w-3 h-3 -rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="4 0 10 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+            <span className="sr-only">Icon description</span>
+          </button>
+        </div>
+        {/* <div className="relative w-80 flex items-center">
+          <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:border-blue-500" placeholder="Search..."></input>
+          <button className="absolute right-0 flex items-center justify-center bg-blue-500 rounded-r-lg text-white w-12 h-full focus:outline-none">
+            <span className="text-lg">{"->"}</span>
+          </button>
+        </div> */}
         <div className={classNames({
           'w-4 h-4 rounded-full': true,
           'bg-blue-400': activeCritique.improveWriting,
@@ -82,9 +91,9 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
           'bg-rose-400': activeCritique.fixSpellingAndGrammar,
           'bg-zinc-800': !activeCritique.fixSpellingAndGrammar,
         })}></div>
-        <button className='rounded bg-zinc-500' onClick={fetchData}>send</button>
-      
-      
+
+
+
         {/* Improve writing, blue-400 */}
         <button
           type="button"
