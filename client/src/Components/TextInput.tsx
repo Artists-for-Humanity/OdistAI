@@ -101,11 +101,7 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
             // placeholder="Enter text..."
         >
             <div 
-<<<<<<< Updated upstream
-                className="w-full h-full p-2.5 outline-none max-h-full"
-=======
                 className="w-full h-full p-2.5 outline-none max-h-full break-words"
->>>>>>> Stashed changes
                 contentEditable
                 id="essay-content"
                 onMouseUp={handleOnMouseUp}
