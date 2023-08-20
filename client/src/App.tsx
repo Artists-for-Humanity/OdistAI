@@ -59,6 +59,8 @@ function App() {
           </div>
 
           <footer className="border-t-2 text-zinc-500 pt-3 text-left text-xs">
+          {/* {inputContent !== "" ? inputContent.trim().split(" ").length : 0}{" "}
+              words -{" "} */}
             <span>{wordCount(document.getElementById('essay-content'))} words - </span>
             <span>{inputContent.length} characters - </span>
             <span>{Math.round(inputContent.length / 500)} pages </span>
