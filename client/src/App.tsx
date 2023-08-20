@@ -13,15 +13,15 @@ function App() {
   // console.log("this is true? ", isHighlightingText)
 
   const wordCount = (div: HTMLElement | null) => {
-      if (div) {
-          return Array.from(div.querySelectorAll('*'))
-              .map(node => node.textContent)
-              .filter(text => text?.trim() !== '')
-              .join(' ')
-              .split(/\s+/)
-              .length;
-      }
-      return 0;
+    if (div) {
+      return Array.from(div.querySelectorAll('*'))
+        .map(node => node.textContent)
+        .filter(text => text?.trim() !== '')
+        .join(' ')
+        .split(/\s+/)
+        .length;
+    }
+    return 0;
   };
 
   return (
@@ -49,16 +49,15 @@ function App() {
                   highlightedText={highlightedText}
                   setHighlightedText={setHighlightedText}
                   setIsHighlightingText={setIsHighlightingText}
-                  inputContent={inputContent} 
+                  inputContent={inputContent}
                   setInputContent={setInputContent}
                   caretLocation={caretLocation}
                 />
-                <ToolBar onData={setChatgptResponse} highlighted={highlightedText}/>
+                <ToolBar onData={setChatgptResponse} highlighted={highlightedText} />
               </div>
             </TextInput>
-            
           </div>
-          
+
           <footer className="border-t-2 text-zinc-500 pt-3 text-left text-xs">
             <span>{wordCount(document.getElementById('essay-content'))} words - </span>
             <span>{inputContent.length} characters - </span>
