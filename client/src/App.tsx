@@ -13,14 +13,14 @@ function App() {
   // console.log("this is true? ", isHighlightingText)
 
   return (
-    <div className="flex space-x-3 items-center justify-center">
+    <div className="flex space-x-3 items-center justify-center w-full min-h-screen bg-matte-black-light">
       <div className="2xl:px-48 px-24 w-3/4">
         <div className="text-center w-full">
-          <div className="border-b border-zinc-200 block mb-6 pb-3 text-left">
-            <div className="text-zinc-500 text-lg">Title</div>
-            <div className="text-white font-semibold text-2xl outline-none" contentEditable suppressContentEditableWarning>My Awesome Essay</div>
+          <div className="border-b-2 text-zinc-500 block mb-8 pb-3 text-left">
+            <div className="text-zinc-500 text-lg pb-3">Title</div>
+            <div className="text-white font-semibold text-xl outline-none pb-3" contentEditable suppressContentEditableWarning>My Awesome Essay</div>
           </div>
-          <div className="flex flex-col block h-[60vh] mb-2">
+          <div className="flex flex-col block h-[60vh] mb-2 bg-matte-black-light">
             <TextInput
               onData={setHighlightedText}
               onContentChange={setInputContent}
@@ -29,7 +29,7 @@ function App() {
               setCaretLocation={setCaretLocation}
             >
               <div
-                className="bg-[#1B1B1B] h-fit my-4 mx-3 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 card-stretch"
+                className="bg-[#1B1B1B] h-fit p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 card-stretch "
               >
                 <IncomingText
                   chatgptResponse={chatgptResponse}
@@ -47,7 +47,7 @@ function App() {
             
           </div>
           
-          <footer className="border-t border-zinc-500 text-zinc-500 pt-3 text-left">
+          <footer className="border-t-2 text-zinc-500 pt-3 text-left text-xs">
             <span>{(inputContent !== '' ? inputContent.trim().split(' ').length : 0)} words - </span>
             <span>{inputContent.length} characters - </span>
             <span>{Math.round(inputContent.length / 500)} pages </span>

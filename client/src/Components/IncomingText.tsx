@@ -46,7 +46,7 @@ const IncomingText: React.FC<{
         console.log("What is highlighted? ", highlightedText)
         return (
             <div className="h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 select-none">
-                <div className="font-italic text-white font-semibold">"{prompt}"</div>
+                <div className="font-italic text-white font-semibold break-words">"{prompt}"</div>
                 {/* <div className="bg-zinc-900 h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100"></div> */}
                 <textarea readOnly
                     id="message"

@@ -97,11 +97,11 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
 
     return (
         <div
-            className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:bg-neutral-800  dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex overflow-y-auto"
+            className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:bg-neutral-800  dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex overflow-y-auto bg-matte-black-light"
         // placeholder="Enter text..."
         >
             <div
-                className="w-full h-full p-2.5 outline-none max-h-full break-words"
+                className="w-full h-full p-2.5 outline-none max-h-full break-words text-base bg-matte-black-light "
                 contentEditable
                 id="essay-content"
                 onMouseUp={handleOnMouseUp}

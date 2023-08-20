@@ -72,24 +72,24 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
           </button>
         </div> */}
         <div className={classNames({
-          'w-4 h-4 rounded-full': true,
-          'bg-blue-400': activeCritique.improveWriting,
-          'bg-zinc-800': !activeCritique.improveWriting,
+          'w-3 h-3 rounded-full': true,
+          'bg-purple': activeCritique.improveWriting,
+          'bg-matte-black-dark': !activeCritique.improveWriting,
         })}></div>
         <div className={classNames({
-          'w-4 h-4 rounded-full': true,
-          'bg-purple-400': activeCritique.makeLonger,
-          'bg-zinc-800': !activeCritique.makeLonger,
+          'w-3 h-3 rounded-full': true,
+          'bg-yellow': activeCritique.makeLonger,
+          'bg-matte-black-dark': !activeCritique.makeLonger,
         })}></div>
         <div className={classNames({
-          'w-4 h-4 rounded-full': true,
+          'w-3 h-3 rounded-full': true,
           'bg-green-400': activeCritique.makeShorter,
-          'bg-zinc-800': !activeCritique.makeShorter,
+          'bg-matte-black-dark': !activeCritique.makeShorter,
         })}></div>
         <div className={classNames({
-          'w-4 h-4 rounded-full': true,
+          'w-3 h-3 rounded-full': true,
           'bg-rose-400': activeCritique.fixSpellingAndGrammar,
-          'bg-zinc-800': !activeCritique.fixSpellingAndGrammar,
+          'bg-matte-black-dark': !activeCritique.fixSpellingAndGrammar,
         })}></div>
 
 
@@ -97,12 +97,12 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
         {/* Improve writing, blue-400 */}
         <button
           type="button"
-          className="flex bg-neutral-900 rounded-full items-center gap-3"
+          className="flex bg-matte-black-dark rounded-full items-center gap-3"
           onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'improveWriting'))}
         >
           <span className={classNames({
             'w-3 h-3 rounded-full': true,
-            'bg-blue-400': activeCritique.improveWriting,
+            'bg-purple': activeCritique.improveWriting,
             'bg-zinc-800': !activeCritique.improveWriting,
           })}></span>
           Improve writing
@@ -111,12 +111,12 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
         {/* Make longer */}
         <button
           type="button"
-          className="flex gap-3 items-center rounded-full"
+          className="flex bg-matte-black-dark gap-3 items-center rounded-full"
           onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'makeLonger'))}
         >
           <span className={classNames({
             'w-3 h-3 rounded-full': true,
-            'bg-purple-400': activeCritique.makeLonger,
+            'bg-yellow': activeCritique.makeLonger,
             'bg-zinc-800': !activeCritique.makeLonger,
           })}></span>
           Make longer
@@ -125,7 +125,7 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
         {/* Make shorter */}
         <button
           type="button"
-          className="flex gap-3 items-center rounded-full"
+          className="flex bg-matte-black-dark gap-3 items-center rounded-full"
           onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'makeShorter'))}
         >
           <span className={classNames({
@@ -139,7 +139,7 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
         {/* Fix spelling and grammar */}
         <button
           type="button"
-          className="flex gap-3 items-center rounded-full"
+          className="flex bg-matte-black-dark gap-3 items-center rounded-full"
           onClick={() => setActiveCritique(prev => updateActiveCritique(prev, 'fixSpellingAndGrammar'))}
         >
           <span className={classNames({
