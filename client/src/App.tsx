@@ -12,6 +12,18 @@ function App() {
   const [caretLocation, setCaretLocation] = useState(0);
   // console.log("this is true? ", isHighlightingText)
 
+  const wordCount = (div: HTMLElement | null) => {
+      if (div) {
+          return Array.from(div.querySelectorAll('*'))
+              .map(node => node.textContent)
+              .filter(text => text?.trim() !== '')
+              .join(' ')
+              .split(/\s+/)
+              .length;
+      }
+      return 0;
+  };
+
   return (
     <div className="flex space-x-3 items-center justify-center w-full min-h-screen bg-matte-black-light">
       <div className="2xl:px-48 px-24 w-3/4">
@@ -48,7 +60,7 @@ function App() {
           </div>
           
           <footer className="border-t-2 text-zinc-500 pt-3 text-left text-xs">
-            <span>{(inputContent !== '' ? inputContent.trim().split(' ').length : 0)} words - </span>
+            <span>{wordCount(document.getElementById('essay-content'))} words - </span>
             <span>{inputContent.length} characters - </span>
             <span>{Math.round(inputContent.length / 500)} pages </span>
           </footer>
