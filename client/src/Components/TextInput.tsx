@@ -20,6 +20,7 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
                 caretOffset = preCaretRange.toString().length;
             }
         }
+        // other browser support
         // else if ( (sel === doc.selection) && sel.type != "Control") {
         //     const textRange = sel.createRange();
         //     const preCaretTextRange = doc.body.createTextRange();
@@ -49,59 +50,19 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
             setHighlight(true);
             onData(selectedText);
         }
-        // console.log('selected', selectedText)
-        // const lastNodeOfSelection = window.getSelection()?.anchorNode;
-
-        // console.log(lastNodeOfSelection);
-        // const allEssayNodes = Array.from((document.getElementById('essay-content') as HTMLDivElement).childNodes)?.filter(node => node.nodeName.toUpperCase() !== "TEXTAREA");
-        // allEssayNodes.map((node: ChildNode, idx: number) => {
-        //     console.log("idx:", idx, node)
-        // })
-        // const rerenderedNodes = (
-        //     <Fragment>
-        //         {allEssayNodes.map((node: ChildNode, idx: number) => {
-        //             if (node.isSameNode(lastNodeOfSelection!)) {
-        //                 return (
-        //                     <Fragment key={idx}>
-        //                         {children}
-        //                     </Fragment>
-        //                 )
-        //             } else {
-        //                 return ( null )
-        //             }
-        //         })}
-        //     </Fragment>
-        // )
-
-        // console.log(rerenderedNodes);
-        // (document.getElementById('essay-content') as HTMLDivElement).innerHTML = '';
-        // TODO: insert the ai suggestion box after the last node (div paragraph in this case)
-
-        // console.log(selectedText);
     };
 
     const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
 
         onContentChange((e.target as HTMLDivElement).textContent!);
-
-
-        // setEssayContent((e.target as HTMLDivElement).textContent!);
     }
-
-    // if (document.getElementById('essay-content')) {
-    //     console.log(essayContent);
-    //     (document.getElementById('essay-content') as HTMLDivElement).childNodes.forEach(child => {
-    //         (document.getElementById('essay-content') as HTMLDivElement).removeChild(child);
-    //     })
-    // }
-
     return (
         <div
-            className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:bg-neutral-800  dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex overflow-y-auto bg-matte-black-light"
+            className="transition-all duration-300 h-full mb-8 w-full text-sm text-gray-900 group-focus:drop-shadow-2xl bg-gray-50 rounded-lg dark:placeholder-gray-400 dark:text-white text-left outline-none flex-col flex overflow-y-auto bg-matte-black-light"
         // placeholder="Enter text..."
         >
             <div
-                className="w-full h-full p-2.5 outline-none max-h-full break-words text-base bg-matte-black-light "
+                className="w-full h-full p-2.5 outline-none max-h-full break-words text-base bg-matte-black-light shrink overflow-y-auto mb-3"
                 contentEditable
                 id="essay-content"
                 onMouseUp={handleOnMouseUp}
