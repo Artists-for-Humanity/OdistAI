@@ -21,7 +21,7 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
 
   const fetchData = async () => {
     // Uncomment this to see the hardcorded version is working.
-    const prompt = 'use these critiques: ' + critique + 'to edit the following text, without responding to the question or adding extra text besides the response: "' + highlighted + '"'
+    const prompt = 'use these critiques: "' + critique + '" to edit the following text, without responding to the question or adding extra text besides the response itself: "' + highlighted + '"'
 
     try {
       const apiUrl = 'http://localhost:8080/chat'; // Placeholder API URL, change it to the express URL address

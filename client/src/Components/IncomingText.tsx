@@ -21,9 +21,11 @@ const IncomingText: React.FC<{
     setIsHighlightingText
 }) => {
         const textbox = document.getElementById('essay-content') as HTMLDivElement;
+        console.log(chatgptResponse);
+        const response = chatgptResponse.replace('\n', '<br>')
         const handleReplace = () => {
             const textContent = inputContent;
-            const updatedText = textContent.slice(0, caretLocation - highlightedText.length) + (chatgptResponse || "") + textContent.slice(caretLocation);
+            const updatedText = textContent.slice(0, caretLocation - highlightedText.length) + (response || "") + textContent.slice(caretLocation);
             // const updatedText = textContent.replace(highlightedText, chatgptResponse);
             textbox.innerHTML = updatedText;
             setInputContent(textbox.innerText);
@@ -31,7 +33,7 @@ const IncomingText: React.FC<{
         };
         const handleInsert = () => {
             const textContent = inputContent;
-            const updatedText = textContent.slice(0, caretLocation - highlightedText.length) + `<br>${(chatgptResponse || "")}\n<br>` + textContent.slice(caretLocation);
+            const updatedText = textContent.slice(0, caretLocation - highlightedText.length) + `<br>${(response || "")}\n<br>` + textContent.slice(caretLocation);
             // const updatedText = textContent.replace(highlightedText, chatgptResponse);
             textbox.innerHTML = updatedText;
             chatgptResponse = '';
@@ -57,7 +59,8 @@ const IncomingText: React.FC<{
                     <button onClick={handleReplace}>Replace</button>
                     <button onClick={handleInsert}>Insert Below</button>
                     <button onClick={handleCancel}>Cancel</button>
-                </div>}
+                    </div>
+                }
             </div>
         );
     }
