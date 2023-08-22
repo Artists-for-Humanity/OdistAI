@@ -5,6 +5,9 @@ import IncomingText from "./Components/IncomingText";
 import ToolBar from "./Components/ToolBar";
 import User from "./assets/user.png";
 import Luke from "./assets/luke.png";
+import Handy from "./assets/handy.png";
+import Gordan from "./assets/gordan.png";
+import Phaedra from "./assets/phaedra.png";
 
 function App() {
   const [highlightedText, setHighlightedText] = useState("");
@@ -78,35 +81,35 @@ function App() {
           <h3 className="text-center">About The Project</h3>
           <div className="flex flex-col h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
             <div className="pt-6 flex flex-col items-center text-center gap-y-5">
-              <img className="w-40" src={User} alt="image" />
-              <p className="text-[14px] mt-2">Handy D.</p>
-              <p className="text-[12px] px-10 text-left">
-                hello i am handy In publishing and graphic design, Lorem ipsum
-                is a placeholder text commonly used to demonstrate the visual
-                form of a document or a typeface without relying on meaningful
-                content. Lorem ipsum may be used as a placeholder before final
-                copy is available.
+              <h3>Project Description</h3>
+              <p className="text-[12px] px-10 pb-4">
+                In publishing and graphic design, Lorem ipsum is a placeholder
+                text commonly used to demonstrate the visual form of a document
+                or a typeface without relying on meaningful content. Lorem ipsum
+                may be used as a placeholder before final copy is available.
               </p>
+              <img className="rounded-full w-40" src={Handy} alt="image" />
+              <p className="text-[14px] mt-2">Handy D.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
-              <img className="w-40" src={User} alt="image" />
+              <img
+                className="rounded-full w-40 grayscale"
+                src={Phaedra}
+                alt="image"
+              />
               <p className="text-[14px] mt-2">Phaedra S.</p>
-              <p className="text-[12px] px-10">hello i am phaedra</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
-              <img className="w-40" src={User} alt="image" />
+              <img className="rounded-full w-40" src={Gordan} alt="image" />
               <p className="text-[14px] mt-2">Gordan L.</p>
-              <p className="text-[12px] px-10">hello iam gordan</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
               <img className="rounded-full w-40" src={Luke} alt="image" />
               <p className="text-[14px] mt-2">Luke C.</p>
-              <p className="text-[12px] px-10">hello i am luke</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
-              <img className="w-40" src={User} alt="image" />
+              <img className="rounded-full w-40" src={User} alt="image" />
               <p className="text-[14px] mt-2">Youssef J.</p>
-              <p className="text-[12px] px-10">hello i am youssef</p>
             </div>
           </div>
         </div>
