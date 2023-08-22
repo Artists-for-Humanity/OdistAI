@@ -5,6 +5,9 @@ import IncomingText from "./Components/IncomingText";
 import ToolBar from "./Components/ToolBar";
 import User from "./assets/user.png";
 import Luke from "./assets/luke.png";
+import Handy from "./assets/handy.png";
+import Gordan from "./assets/gordan.png";
+import Phaedra from "./assets/phaedra.png";
 
 function App() {
   const [highlightedText, setHighlightedText] = useState("");
@@ -20,9 +23,9 @@ function App() {
   };
 
   return (
-    <div className="flex space-x-3 items-center justify-center w-full min-h-screen bg-matte-black-light">
-      <div className="w-4/5 flex flex-row">
-        <div className="text-center w-2/3">
+    <div className="flex items-center justify-center w-full mt-16 lg:mt-0 bg-matte-black-light">
+      <div className="w-4/5 lg:flex gap-16">
+        <div className="text-center sm:w-full lg:w-2/3">
           <div className="border-b-2 text-zinc-500 block mb-8 pb-3 text-left">
             <div className="text-zinc-500 text-lg pb-3">Title</div>
             <div
@@ -74,39 +77,39 @@ function App() {
             <span>{Math.round(inputContent.length / 500)} pages </span>
           </footer>
         </div>
-        <div className="flex flex-col justify-center items-center w-1/4 h-[80vh] gap-4 -mt-1.5">
-          <h3 className="text-center ml-16">About The Project</h3>
-          <div className="flex flex-col ml-16 h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
-            <div className="pt-6 flex flex-col items-center text-center">
-              <img className="w-40" src={User} alt="image" />
-              <p className="text-[14px] mt-2">Handy D.</p>
-              <p className="text-[12px] text-left">
-                hello i am handy In publishing and graphic design, Lorem ipsum
-                is a placeholder text commonly used to demonstrate the visual
-                form of a document or a typeface without relying on meaningful
-                content. Lorem ipsum may be used as a placeholder before final
-                copy is available.
+        <div className="flex flex-col justify-center items-center sm:w-full lg:w-1/4 h-[80vh] gap-4 mt-1.5">
+          <h3 className="text-center">About The Project</h3>
+          <div className="flex flex-col h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
+            <div className="pt-6 flex flex-col items-center text-center gap-y-5">
+              <h3>Project Description</h3>
+              <p className="text-[12px] px-10 pb-4">
+                In publishing and graphic design, Lorem ipsum is a placeholder
+                text commonly used to demonstrate the visual form of a document
+                or a typeface without relying on meaningful content. Lorem ipsum
+                may be used as a placeholder before final copy is available.
               </p>
+              <img className="rounded-full w-40" src={Handy} alt="image" />
+              <p className="text-[14px] mt-2">Handy D.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
-              <img className="w-40" src={User} alt="image" />
+              <img
+                className="rounded-full w-40 grayscale"
+                src={Phaedra}
+                alt="image"
+              />
               <p className="text-[14px] mt-2">Phaedra S.</p>
-              <p className="text-[12px] px-5">hello i am phaedra</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
-              <img className="w-40" src={User} alt="image" />
+              <img className="rounded-full w-40" src={Gordan} alt="image" />
               <p className="text-[14px] mt-2">Gordan L.</p>
-              <p className="text-[12px] px-5">hello iam gordan</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
               <img className="rounded-full w-40" src={Luke} alt="image" />
               <p className="text-[14px] mt-2">Luke C.</p>
-              <p className="text-[12px] px-5">hello i am luke</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
-              <img className="w-40" src={User} alt="image" />
+              <img className="rounded-full w-40" src={User} alt="image" />
               <p className="text-[14px] mt-2">Youssef J.</p>
-              <p className="text-[12px] px-5">hello i am youssef</p>
             </div>
           </div>
         </div>
