@@ -30,7 +30,7 @@ function App() {
               contentEditable
               suppressContentEditableWarning
             >
-              My Awesome Essay
+              Try Write and Highlighting Some Text :3
             </div>
           </div>
           <div className="flex flex-col block h-[60vh] mb-2 bg-matte-black-light">
@@ -73,9 +73,9 @@ function App() {
             <span>{Math.round(inputContent.length / 500)} pages </span>
           </footer>
         </div>
-        <div className="flex flex-col justify-center items-center w-1/4 h-screen gap-5">
-          <h3 className="mt-[46px] text-center">About The Project</h3>
-          <div className="flex flex-col items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-matte-black-dark">
+        <div className="flex flex-col justify-center items-center w-1/4 h-[80vh] gap-4 -mt-1.5">
+          <h3 className="text-center ml-16">About The Project</h3>
+          <div className="flex flex-col ml-16 h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
             <div className="pt-6 flex flex-col items-center text-center">
               <img className="w-40" src={User} alt="image" />
               <p className="text-[14px] mt-2">Handy D.</p>
@@ -87,25 +87,25 @@ function App() {
                 copy is available.
               </p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center gap-y-5">
               <img className="w-40" src={User} alt="image" />
               <p className="text-[14px] mt-2">Phaedra S.</p>
-              <p className="text-[12px]">hello i am phaedra</p>
+              <p className="text-[12px] px-5">hello i am phaedra</p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center gap-y-5">
               <img className="w-40" src={User} alt="image" />
               <p className="text-[14px] mt-2">Gordan L.</p>
-              <p className="text-[12px]">hello iam gordan</p>
+              <p className="text-[12px] px-5">hello iam gordan</p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center gap-y-5">
               <img className="rounded-full w-40" src={Luke} alt="image" />
               <p className="text-[14px] mt-2">Luke C.</p>
-              <p className="text-[12px]">hello i am luke</p>
+              <p className="text-[12px] px-5">hello i am luke</p>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center gap-y-5">
               <img className="w-40" src={User} alt="image" />
               <p className="text-[14px] mt-2">Youssef J.</p>
-              <p className="text-[12px]">hello i am youssef</p>
+              <p className="text-[12px] px-5">hello i am youssef</p>
             </div>
           </div>
         </div>

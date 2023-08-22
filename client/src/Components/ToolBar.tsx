@@ -41,10 +41,10 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
     };
 
     setCritique(classNames({
-      'improve writing,': activeCritique.improveWriting,
-      'make the passage longer,': activeCritique.makeLonger,
-      'make the passage shorter,': activeCritique.makeShorter,
-      'fix spelling and grammar,': activeCritique.fixSpellingAndGrammar,
+      'improve writing directly, do not explain anything,': activeCritique.improveWriting,
+      'make the passage longer directly, do not explain anything,': activeCritique.makeLonger,
+      'make the passage shorter directly, do not explain anything,': activeCritique.makeShorter,
+      'fix spelling and grammar directly, do not explain anything,': activeCritique.fixSpellingAndGrammar,
     }));
 
     return result;
@@ -60,7 +60,7 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
           ></input>
           <button type="button" onClick={fetchData} className="absolute right-0 text-zinc-600 ring-1 ring-zinc-600 font-small rounded-full text-sm p-1 mr-2 text-center inline-flex items-center">
             <svg className="w-3 h-3 -rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="4 0 10 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
             </svg>
             <span className="sr-only">Icon description</span>
           </button>

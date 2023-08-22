@@ -43,7 +43,6 @@ const IncomingText: React.FC<{
             setIsHighlightingText(false);
             chatgptResponse = '';
         };
-        console.log("What is highlighted? ", highlightedText)
         return (
             <div className="h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 select-none">
                 <div className="font-italic text-white font-semibold break-words">"{prompt}"</div>
