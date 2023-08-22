@@ -46,7 +46,8 @@ const IncomingText: React.FC<{
             chatgptResponse = '';
         };
         return (
-            <div className="h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 select-none">
+            <div className="relative h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 select-none">
+                <button className="absolute right-0" onClick={handleCancel}>X</button>
                 <div className="font-italic text-white font-semibold break-words">"{prompt}"</div>
                 {/* <div className="bg-zinc-900 h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100"></div> */}
                 <textarea readOnly
