@@ -3,10 +3,12 @@ import "./App.css";
 import TextInput from "./Components/TextInput";
 import IncomingText from "./Components/IncomingText";
 import ToolBar from "./Components/ToolBar";
+import User from "./assets/user.png";
+import Luke from "./assets/luke.png";
 
 function App() {
-  const [highlightedText, setHighlightedText] = useState("")
-  const [chatgptResponse, setChatgptResponse] = useState("")
+  const [highlightedText, setHighlightedText] = useState("");
+  const [chatgptResponse, setChatgptResponse] = useState("");
   const [inputContent, setInputContent] = useState("");
   const [isHighlightingText, setIsHighlightingText] = useState(false);
   const [caretLocation, setCaretLocation] = useState(0);
@@ -14,19 +16,22 @@ function App() {
 
   const wordCount = (div: HTMLDivElement) => {
     if (!div) return 0;
-    return div.innerText
-      .trim()
-      .split(/\W+/)
-      .length;
-  }
+    return div.innerText.trim().split(/\W+/).length;
+  };
 
   return (
     <div className="flex space-x-3 items-center justify-center w-full min-h-screen bg-matte-black-light">
-      <div className="2xl:px-48 px-24 w-3/4 flex flex-row">
-        <div className="text-center w-full">
+      <div className="w-4/5 flex flex-row">
+        <div className="text-center w-2/3">
           <div className="border-b-2 text-zinc-500 block mb-8 pb-3 text-left">
             <div className="text-zinc-500 text-lg pb-3">Title</div>
-            <div className="text-white font-semibold text-xl outline-none pb-3" contentEditable suppressContentEditableWarning>My Awesome Essay</div>
+            <div
+              className="text-white font-semibold text-xl outline-none pb-3"
+              contentEditable
+              suppressContentEditableWarning
+            >
+              Try Write and Highlighting Some Text :3
+            </div>
           </div>
           <div className="flex flex-col block h-[60vh] mb-2 bg-matte-black-light">
             <TextInput
@@ -35,10 +40,9 @@ function App() {
               setHighlight={setIsHighlightingText}
               isHighlighted={isHighlightingText}
               setCaretLocation={setCaretLocation}
+              onPopUp={setChatgptResponse}
             >
-              <div
-                className="bg-[#1B1B1B] h-fit p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 card-stretch "
-              >
+              <div className="bg-[#1B1B1B] h-fit p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 card-stretch ">
                 <IncomingText
                   chatgptResponse={chatgptResponse}
                   prompt={highlightedText}
@@ -49,7 +53,10 @@ function App() {
                   setInputContent={setInputContent}
                   caretLocation={caretLocation}
                 />
-                <ToolBar onData={setChatgptResponse} highlighted={highlightedText} />
+                <ToolBar
+                  onData={setChatgptResponse}
+                  highlighted={highlightedText}
+                />
               </div>
             </TextInput>
           </div>
@@ -57,21 +64,50 @@ function App() {
           <footer className="border-t-2 text-zinc-500 pt-3 text-left text-xs">
             {/* {inputContent !== "" ? inputContent.trim().split(" ").length : 0}{" "}
               words -{" "} */}
-            <span>{wordCount(document.getElementById('essay-content') as HTMLDivElement)} words - </span>
+            <span>
+              {wordCount(
+                document.getElementById("essay-content") as HTMLDivElement
+              )}{" "}
+              words -{" "}
+            </span>
             <span>{inputContent.length} characters - </span>
             <span>{Math.round(inputContent.length / 500)} pages </span>
           </footer>
         </div>
-        <div className="flex flex-col w-2/4 gap-5">
-          <h3>About The Project</h3>
-          <div className="flex flex-row text-center align-text-bottom gap-5 h-48">
-            <div className="w-1/2 items-end bg-zinc-900"><span>Phaedra</span>
+        <div className="flex flex-col justify-center items-center w-1/4 h-[80vh] gap-4 -mt-1.5">
+          <h3 className="text-center ml-16">About The Project</h3>
+          <div className="flex flex-col ml-16 h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
+            <div className="pt-6 flex flex-col items-center text-center">
+              <img className="w-40" src={User} alt="image" />
+              <p className="text-[14px] mt-2">Handy D.</p>
+              <p className="text-[12px] text-left">
+                hello i am handy In publishing and graphic design, Lorem ipsum
+                is a placeholder text commonly used to demonstrate the visual
+                form of a document or a typeface without relying on meaningful
+                content. Lorem ipsum may be used as a placeholder before final
+                copy is available.
+              </p>
             </div>
-            <div className="w-1/2 bg-zinc-900">Gordan</div>
-          </div>
-          <div className="flex flex-row text-center gap-5 h-48">
-            <div className="w-1/2  bg-zinc-900">Youssef</div>
-            <div className="w-1/2 bg-zinc-900">Luke</div>
+            <div className="flex flex-col items-center text-center gap-y-5">
+              <img className="w-40" src={User} alt="image" />
+              <p className="text-[14px] mt-2">Phaedra S.</p>
+              <p className="text-[12px] px-5">hello i am phaedra</p>
+            </div>
+            <div className="flex flex-col items-center text-center gap-y-5">
+              <img className="w-40" src={User} alt="image" />
+              <p className="text-[14px] mt-2">Gordan L.</p>
+              <p className="text-[12px] px-5">hello iam gordan</p>
+            </div>
+            <div className="flex flex-col items-center text-center gap-y-5">
+              <img className="rounded-full w-40" src={Luke} alt="image" />
+              <p className="text-[14px] mt-2">Luke C.</p>
+              <p className="text-[12px] px-5">hello i am luke</p>
+            </div>
+            <div className="flex flex-col items-center text-center gap-y-5">
+              <img className="w-40" src={User} alt="image" />
+              <p className="text-[14px] mt-2">Youssef J.</p>
+              <p className="text-[12px] px-5">hello i am youssef</p>
+            </div>
           </div>
         </div>
       </div>

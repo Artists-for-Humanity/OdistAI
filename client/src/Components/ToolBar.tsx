@@ -3,25 +3,33 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import classNames from 'classnames';
 // import TextInput from './TextInput';
 
 type DataCallback = (data: string) => void;
 
-const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onData, highlighted }) => {
+const ToolBar: React.FC<{ onData: DataCallback, highlighted: string}> = ({ onData, highlighted}) => {
   const [critique, setCritique] = useState('');
   const baseCritique = {
-    improveWriting: true,
+    improveWriting: false,
     makeLonger: false,
     makeShorter: false,
     fixSpellingAndGrammar: false
   }
   const [activeCritique, setActiveCritique] = useState(baseCritique);
+  const [inputBarText, setInputBarText] = useState("")
+
+  const handleInputBar = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputBarText((e.target as HTMLInputElement).value)
+    console.log("What is the input bar text: ", inputBarText, critique)
+  }
 
   const fetchData = async () => {
     // Uncomment this to see the hardcorded version is working.
-    const prompt = 'use these critiques: "' + critique + '" to edit the following text, without responding to the question or adding extra text besides the response itself: "' + highlighted + '"'
+    
+    const prompt = critique === "" ? inputBarText : 'use these critiques: ' + critique + 'to edit the following text, without responding to the question or adding extra text besides the response: "' + highlighted + '"'
+    console.log("prompt after submit: ", prompt)
 
     try {
       const apiUrl = 'http://localhost:8080/chat'; // Placeholder API URL, change it to the express URL address
@@ -41,10 +49,10 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
     };
 
     setCritique(classNames({
-      'improve writing,': activeCritique.improveWriting,
-      'make the passage longer,': activeCritique.makeLonger,
-      'make the passage shorter,': activeCritique.makeShorter,
-      'fix spelling and grammar,': activeCritique.fixSpellingAndGrammar,
+      'improve writing directly, do not explain anything,': activeCritique.improveWriting,
+      'make the passage longer directly, do not explain anything,': activeCritique.makeLonger,
+      'make the passage shorter directly, do not explain anything,': activeCritique.makeShorter,
+      'fix spelling and grammar directly, do not explain anything,': activeCritique.fixSpellingAndGrammar,
     }));
 
     return result;
@@ -55,12 +63,14 @@ const ToolBar: React.FC<{ onData: DataCallback, highlighted: string }> = ({ onDa
       <div className="flex gap-5 items-center flex-wrap">
         <div className='relative flex items-center'>
           <input
-            className='py-1.5 w-full p-3 rounded-full max-w-md bg-neutral-900'
+            className='py-1.5 w-full p-3 rounded-full max-w-md bg-neutral-900 pr-10'
             placeholder="  Ask AI..."
+            value={inputBarText} 
+            onChange={handleInputBar}
           ></input>
           <button type="button" onClick={fetchData} className="absolute right-0 text-zinc-600 ring-1 ring-zinc-600 font-small rounded-full text-sm p-1 mr-2 text-center inline-flex items-center">
             <svg className="w-3 h-3 -rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="4 0 10 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
             </svg>
             <span className="sr-only">Icon description</span>
           </button>
