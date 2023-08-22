@@ -4,7 +4,7 @@ type DataCallback = (data: string) => void;
 type StatusCallback = (data: boolean) => void;
 type NumberCallback = (data: number) => void;
 
-const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback, children: ReactNode, setHighlight: StatusCallback, isHighlighted: boolean, setCaretLocation: NumberCallback }> = ({ onData, onContentChange, children, setHighlight, isHighlighted, setCaretLocation }) => {
+const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback, children: ReactNode, setHighlight: StatusCallback, isHighlighted: boolean, setCaretLocation: NumberCallback, onPopUp: DataCallback }> = ({ onData, onContentChange, children, setHighlight, isHighlighted, setCaretLocation, onPopUp}) => {
     function getCaretCharacterOffsetWithin(element: Element) {
         let caretOffset = 0;
         // const doc = document;
@@ -39,6 +39,7 @@ const TextInput: React.FC<{ onData: DataCallback, onContentChange: DataCallback,
     const handleHighlight = (e: React.MouseEvent<HTMLDivElement>) => {
 
         e.preventDefault();
+        onPopUp("")
         const selectedText = window.getSelection()?.toString();
         // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         setCaretLocation(getCaretCharacterOffsetWithin(e.target as HTMLDivElement));

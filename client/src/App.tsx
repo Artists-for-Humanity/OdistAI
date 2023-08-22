@@ -40,6 +40,7 @@ function App() {
               setHighlight={setIsHighlightingText}
               isHighlighted={isHighlightingText}
               setCaretLocation={setCaretLocation}
+              onPopUp={setChatgptResponse}
             >
               <div className="bg-[#1B1B1B] h-fit p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 card-stretch ">
                 <IncomingText

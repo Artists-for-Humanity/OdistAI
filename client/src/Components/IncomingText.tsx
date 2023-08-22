@@ -18,7 +18,7 @@ const IncomingText: React.FC<{
     setInputContent,
     caretLocation,
     setHighlightedText,
-    setIsHighlightingText
+    setIsHighlightingText,
 }) => {
         const textbox = document.getElementById('essay-content') as HTMLDivElement;
         const handleReplace = () => {
