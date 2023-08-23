@@ -80,13 +80,14 @@ function App() {
         <div className="flex flex-col justify-center items-center sm:w-full md:w-full lg:w-full xl:w-1/4 h-[80vh] gap-4 mt-1.5">
           <h3 className="text-center">About The Project</h3>
           <div className="flex flex-col h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
-            <div className="pt-6 flex flex-col items-center text-center gap-y-5">
+            <div className="pt-6 flex flex-col items-center text-left gap-y-5">
               <h3>Project Description</h3>
               <p className="text-[12px] px-10 pb-4">
-                In publishing and graphic design, Lorem ipsum is a placeholder
-                text commonly used to demonstrate the visual form of a document
-                or a typeface without relying on meaningful content. Lorem ipsum
-                may be used as a placeholder before final copy is available.
+                This application is a writing tool to help people with writing essays by helping them formulate their thoughts into smart, well formed sentences . A common struggle is sometimes finding the right words to describe something. The Odist application can help you shorten or lengthen any sentence you need fixed.
+
+                <br></br><br></br>This AI guided buddy allows users to enter different prompts and the AI responds with helpful solutions for their essay. Odist uses ChatGPT as the supporting AI model to respond to the given question asked by the user.
+
+                <br></br><br></br>This helpful form of AI can take a user's average essay and turn it into a well written response. This application is still a work in progress, but due to the efforts from the teens and mentors it is up and running.
               </p>
               <img className="rounded-full w-40" src={Handy} alt="image" />
               <p className="text-[14px] mt-2">Handy D.</p>
