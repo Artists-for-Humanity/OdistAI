@@ -15,7 +15,7 @@ const ToolBar: React.FC<{ onData: DataCallback; highlighted: string }> = ({
 }) => {
   const [critique, setCritique] = useState("");
   const baseCritique = {
-    improveWriting: false,
+    improveWriting: true,
     makeLonger: false,
     makeShorter: false,
     fixSpellingAndGrammar: false,
@@ -31,8 +31,8 @@ const ToolBar: React.FC<{ onData: DataCallback; highlighted: string }> = ({
     // Uncomment this to see the hardcorded version is working.
 
     const prompt =
-      critique === ""
-        ? inputBarText
+      inputBarText !== ""
+        ? "use the following instructions '" + inputBarText + "' to edit these highlighted text: '" + highlighted + "'"
         : "use these critiques: " +
           critique +
           'to edit the following text, without responding to the question or adding extra text besides the response: "' +
