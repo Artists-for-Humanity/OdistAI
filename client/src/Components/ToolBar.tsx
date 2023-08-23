@@ -81,7 +81,7 @@ const ToolBar: React.FC<{ onData: DataCallback; highlighted: string }> = ({
       <div className="flex gap-5 items-center flex-wrap">
         <div className="relative flex items-center">
           <input
-            className="py-1.5 w-full p-3 rounded-full max-w-md bg-neutral-900 pr-10"
+            className="py-1.5 sm:w-full md:w-96 lg:w-96 xl:w-96 p-3 rounded-full max-w-md bg-neutral-900 pr-10"
             placeholder="  Ask AI..."
             value={inputBarText}
             onChange={handleInputBar}
