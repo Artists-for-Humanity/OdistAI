@@ -23,9 +23,9 @@ function App() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full mt-16 lg:mt-0 bg-matte-black-light">
-      <div className="w-4/5 lg:flex gap-16">
-        <div className="text-center sm:w-full lg:w-2/3">
+    <div className="flex items-center justify-center w-full mt-16 xl:mt-0 bg-matte-black-light">
+      <div className="w-4/5 xl:flex gap-x-16">
+        <div className="text-center sm:w-full md:w-full lg:w-full xl:w-3/4">
           <div className="border-b-2 text-zinc-500 block mb-8 pb-3 text-left">
             <div className="text-zinc-500 text-lg pb-3">Title</div>
             <div
@@ -77,7 +77,7 @@ function App() {
             <span>{Math.round(inputContent.length / 500)} pages </span>
           </footer>
         </div>
-        <div className="flex flex-col justify-center items-center sm:w-full lg:w-1/4 h-[80vh] gap-4 mt-1.5">
+        <div className="flex flex-col justify-center items-center sm:w-full md:w-full lg:w-full xl:w-1/4 h-[80vh] gap-4 mt-1.5">
           <h3 className="text-center">About The Project</h3>
           <div className="flex flex-col h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
             <div className="pt-6 flex flex-col items-center text-center gap-y-5">
@@ -108,7 +108,11 @@ function App() {
               <p className="text-[14px] mt-2">Luke C.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
-              <img className="rounded-full w-40" src={User} alt="image" />
+              <img
+                className="rounded-full w-40 grayscale"
+                src={User}
+                alt="image"
+              />
               <p className="text-[14px] mt-2">Youssef J.</p>
             </div>
           </div>
