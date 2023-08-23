@@ -25,7 +25,6 @@ const ToolBar: React.FC<{ onData: DataCallback; highlighted: string }> = ({
 
   const handleInputBar = (e: ChangeEvent<HTMLInputElement>) => {
     setInputBarText((e.target as HTMLInputElement).value);
-    console.log("What is the input bar text: ", inputBarText, critique);
   };
 
   const fetchData = async () => {
@@ -39,7 +38,7 @@ const ToolBar: React.FC<{ onData: DataCallback; highlighted: string }> = ({
           'to edit the following text, without responding to the question or adding extra text besides the response: "' +
           highlighted +
           '"';
-    console.log("prompt after submit: ", prompt);
+    console.log("This was the submited prompt: ", prompt);
 
     try {
       const apiUrl = "http://localhost:8080/chat"; // Placeholder API URL, change it to the express URL address
@@ -63,13 +62,13 @@ const ToolBar: React.FC<{ onData: DataCallback; highlighted: string }> = ({
 
     setCritique(
       classNames({
-        "improve writing directly, do not explain anything,":
+        "improve writing":
           activeCritique.improveWriting,
-        "make the passage longer directly, do not explain anything,":
+        "make the passage longer":
           activeCritique.makeLonger,
-        "make the passage shorter directly, do not explain anything,":
+        "make the passage shorter":
           activeCritique.makeShorter,
-        "fix spelling and grammar directly, do not explain anything,":
+        "fix spelling and grammar":
           activeCritique.fixSpellingAndGrammar,
       })
     );

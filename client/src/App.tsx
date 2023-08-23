@@ -77,7 +77,7 @@ function App() {
             <span>{Math.round(inputContent.length / 500)} pages </span>
           </footer>
         </div>
-        <div className="flex flex-col justify-center items-center sm:w-full md:w-full lg:w-full xl:w-1/4 h-[80vh] gap-4 mt-1.5">
+        <div className="flex flex-col justify-center items-center sm:w-full md:w-full lg:w-full xl:w-1/4 h-[80vh] gap-4 -mt-9">
           <h3 className="text-center">About The Project</h3>
           <div className="flex flex-col h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
             <div className="pt-6 flex flex-col items-center text-left gap-y-5">
@@ -89,32 +89,38 @@ function App() {
 
                 <br></br><br></br>This helpful form of AI can take a user's average essay and turn it into a well written response. This application is still a work in progress, but due to the efforts from the teens and mentors it is up and running.
               </p>
+              <p className="text-[14px] px-10 pb-4">Team Members</p>
+              <p className="text-[14px] px-10">Creative Tech Studio Lead</p>
               <img className="rounded-full w-40" src={Handy} alt="image" />
-              <p className="text-[14px] mt-2">Handy D.</p>
+              <p className="text-[12px] mt-2">Handy D.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
+            <p className="text-[14px] px-10 pt-4">Frontend Developer</p>
               <img
                 className="rounded-full w-40 grayscale"
                 src={Phaedra}
                 alt="image"
               />
-              <p className="text-[14px] mt-2">Phaedra S.</p>
+              <p className="text-[12px] mt-2">Phaedra S.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
+            <p className="text-[14px] px-10 pt-4">Designer</p>
               <img className="rounded-full w-40" src={Gordan} alt="image" />
-              <p className="text-[14px] mt-2">Gordan L.</p>
+              <p className="text-[12px] mt-2">Gordan L.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
+            <p className="text-[14px] px-10 pt-4">Assistant Mentor</p>
               <img className="rounded-full w-40" src={Luke} alt="image" />
-              <p className="text-[14px] mt-2">Luke C.</p>
+              <p className="text-[12px] mt-2">Luke C.</p>
             </div>
             <div className="flex flex-col items-center text-center gap-y-5">
+            <p className="text-[14px] px-10 pt-4">Backend Developer</p>
               <img
                 className="rounded-full w-40 grayscale"
                 src={User}
                 alt="image"
               />
-              <p className="text-[14px] mt-2">Youssef J.</p>
+              <p className="text-[12px] mt-2">Youssef J.</p>
             </div>
           </div>
         </div>
