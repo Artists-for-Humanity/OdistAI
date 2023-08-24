@@ -6,6 +6,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        'eb-garamond': ['EB Garamond', 'serif']
+      },
       colors: {
         yellow: "#F0C422",
         gray: "#858585",

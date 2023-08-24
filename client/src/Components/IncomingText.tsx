@@ -47,7 +47,12 @@ const IncomingText: React.FC<{
         };
         return (
             <div className="relative h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100 select-none">
-                <button className="absolute right-0" onClick={handleCancel}>X</button>
+                <button type="button" className="absolute right-0 bg-zinc-700 mr-5 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" onClick={handleCancel}>
+              <span className="sr-only">Close menu</span>
+              <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
                 <div className="font-italic text-white font-semibold break-words">"{prompt}"</div>
                 {/* <div className="bg-zinc-900 h-fit my-4 mx-0 p-3 rounded justify-self-end transition-all opacity-0 delay-200 duration-700 opacity-100"></div> */}
                 <textarea readOnly
