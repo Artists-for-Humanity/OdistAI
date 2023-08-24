@@ -24,8 +24,8 @@ function App() {
 
   return (
     <div className="flex flex-col text-[32px] items-center gap-6">
-      <div className="font-eb-garamond">OdistAI</div>
-      <div className="flex items-center justify-center w-full mt-16 xl:mt-0 bg-matte-black-light">
+      <div className="font-eb-garamond sm: mt-20">OdistAI</div>
+      <div className="flex items-center justify-center w-full mt-16 sm:mt-0 xl:mt-0 bg-matte-black-light">
         <div className="w-4/5 xl:flex gap-x-16">
           <div className="text-center sm:w-full md:w-full lg:w-full xl:w-3/4">
             <div className="border-b-2 text-zinc-500 block mb-8 pb-3 text-left">
@@ -79,7 +79,7 @@ function App() {
               <span>{Math.round(inputContent.length / 500)} pages </span>
             </footer>
           </div>
-          <div className="flex flex-col justify-center items-center sm:w-full md:w-full lg:w-full xl:w-1/4 h-[80vh] gap-4 -mt-9">
+          <div className="flex flex-col justify-center items-center sm:w-full mt-0 md:w-full mt-0 lg:w-full mt-0 xl:w-1/4 -mt-9 h-[80vh] gap-4">
             <h3 className="text-center text-[20px]">About The Project</h3>
             <div className="flex flex-col h-4/5 items-center w-full overflow-y-auto gap-y-8 text-center p-5 bg-[#1B1B1B]">
               <div className="pt-6 flex flex-col items-center text-left gap-y-5">
